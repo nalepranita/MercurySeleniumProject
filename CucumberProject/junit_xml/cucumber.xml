@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="2" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="2" time="65.747">
+<testcase classname="Feature To Test FlighBooking on MercuryTours" name="Check whether user is able to book Flight" time="36.136">
+<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User has Logged into MercuryTours with "mercury" and "mercury"........pending
+When User Enters the Flight Details as "one way" and "1" and "London" and "Frankfurt" and "economy".skipped
+And Enter Payment Details...................................................skipped
+Then Check The FLight Confirmation Details..................................skipped
+And Logout of MercuryTours..................................................skipped
+]]></failure>
+</testcase>
+<testcase classname="Feature To Test FlighBooking on MercuryTours" name="Check whether user is able to book Flight 2" time="29.417">
+<failure message="The scenario has pending or undefined step(s)" type="io.cucumber.java.PendingException"><![CDATA[Given User has Logged into MercuryTours with "mercury" and "mercury"........pending
+When User Enters the Flight Details as "one way" and "1" and "London" and "Frankfurt" and "economy".skipped
+And Enter Payment Details...................................................skipped
+Then Check The FLight Confirmation Details..................................skipped
+And Logout of MercuryTours..................................................skipped
+]]></failure>
+</testcase>
+</testsuite>

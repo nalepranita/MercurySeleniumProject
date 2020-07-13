@@ -1,0 +1,215 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-07-09T13:14:56.028Z",
+        "line": 12,
+        "name": "Check whether user is able to book Flight",
+        "description": "",
+        "id": "feature-to-test-flighbooking-on-mercurytours;check-whether-user-is-able-to-book-flight;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "error_message": "io.cucumber.java.PendingException: TODO: implement me\r\n\tat stepDefinitions.FlightBooking.user_has_logged_into_mercury_tours_with_username_and_password(FlightBooking.java:54)\r\n\tat ✽.User has Logged into MercuryTours with \"mercury\" and \"mercury\"(file:///C:/Users/585969/workspace/CucumberProject/src/test/resources/Features/FlightBooking.feature:4)\r\n",
+              "duration": 36060000000,
+              "status": "pending"
+            },
+            "line": 4,
+            "name": "User has Logged into MercuryTours with \"mercury\" and \"mercury\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "mercury",
+                  "offset": 40
+                },
+                {
+                  "val": "mercury",
+                  "offset": 54
+                }
+              ],
+              "location": "stepDefinitions.FlightBooking.user_has_logged_into_mercury_tours_with_username_and_password(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "User Enters the Flight Details as \"one way\" and \"1\" and \"London\" and \"Frankfurt\" and \"economy\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "one way",
+                  "offset": 35
+                },
+                {
+                  "val": "1",
+                  "offset": 49
+                },
+                {
+                  "val": "London",
+                  "offset": 57
+                },
+                {
+                  "val": "Frankfurt",
+                  "offset": 70
+                },
+                {
+                  "val": "economy",
+                  "offset": 86
+                }
+              ],
+              "location": "stepDefinitions.FlightBooking.user_enters_the_flight_details_as(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "Enter Payment Details",
+            "match": {
+              "location": "stepDefinitions.FlightBooking.enter_payment_details()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "Check The FLight Confirmation Details",
+            "match": {
+              "location": "stepDefinitions.FlightBooking.check_the_f_light_confirmation_details()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "Logout of MercuryTours",
+            "match": {
+              "location": "stepDefinitions.FlightBooking.logout_of_mercury_tours()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-07-09T13:15:32.182Z",
+        "line": 13,
+        "name": "Check whether user is able to book Flight",
+        "description": "",
+        "id": "feature-to-test-flighbooking-on-mercurytours;check-whether-user-is-able-to-book-flight;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "error_message": "io.cucumber.java.PendingException: TODO: implement me\r\n\tat stepDefinitions.FlightBooking.user_has_logged_into_mercury_tours_with_username_and_password(FlightBooking.java:54)\r\n\tat ✽.User has Logged into MercuryTours with \"mercury\" and \"mercury\"(file:///C:/Users/585969/workspace/CucumberProject/src/test/resources/Features/FlightBooking.feature:4)\r\n",
+              "duration": 29407000000,
+              "status": "pending"
+            },
+            "line": 4,
+            "name": "User has Logged into MercuryTours with \"mercury\" and \"mercury\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "mercury",
+                  "offset": 40
+                },
+                {
+                  "val": "mercury",
+                  "offset": 54
+                }
+              ],
+              "location": "stepDefinitions.FlightBooking.user_has_logged_into_mercury_tours_with_username_and_password(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 5,
+            "name": "User Enters the Flight Details as \"one way\" and \"1\" and \"London\" and \"Frankfurt\" and \"economy\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "one way",
+                  "offset": 35
+                },
+                {
+                  "val": "1",
+                  "offset": 49
+                },
+                {
+                  "val": "London",
+                  "offset": 57
+                },
+                {
+                  "val": "Frankfurt",
+                  "offset": 70
+                },
+                {
+                  "val": "economy",
+                  "offset": 86
+                }
+              ],
+              "location": "stepDefinitions.FlightBooking.user_enters_the_flight_details_as(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 6,
+            "name": "Enter Payment Details",
+            "match": {
+              "location": "stepDefinitions.FlightBooking.enter_payment_details()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 7,
+            "name": "Check The FLight Confirmation Details",
+            "match": {
+              "location": "stepDefinitions.FlightBooking.check_the_f_light_confirmation_details()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "Logout of MercuryTours",
+            "match": {
+              "location": "stepDefinitions.FlightBooking.logout_of_mercury_tours()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Feature To Test FlighBooking on MercuryTours",
+    "description": "",
+    "id": "feature-to-test-flighbooking-on-mercurytours",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/Features/FlightBooking.feature",
+    "tags": []
+  }
+]
