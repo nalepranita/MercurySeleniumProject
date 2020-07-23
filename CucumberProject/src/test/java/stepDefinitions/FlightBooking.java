@@ -1,6 +1,9 @@
 package stepDefinitions;
 
+import java.io.FileInputStream;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
@@ -16,34 +19,41 @@ import io.cucumber.java.en.When;
 
 
 
+
 public class FlightBooking {
 
 	
 	WebDriver driver=null;
-	
+	//Capture the logs
+		
+		Logger log = Logger.getLogger(FlightBooking.class);
+
+		//Reading OR from properties files
+		Properties prop = new Properties();
+		FileInputStream inp = new FileInputStream("src/main/resources/config.properties");
+		prop.load(inp);
+
     
 
 	@Given("User has Logged into MercuryTours with \"(.*)\" and \"(.*)\"")
 	public void user_has_logged_into_mercury_tours_with_username_and_password(String username, String password) throws InterruptedException {
 
-		System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", prop.getProperty("chromeDriver_path"));
 		driver= new ChromeDriver();
 
 		//1. Open http://newtours.demoaut.com/ in chrome browser
-		driver.navigate().to("http://newtours.demoaut.com/");
+		driver.navigate().to(prop.getProperty("URL"));
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 
+		
+		
 		//Verify mercury tours on home page 
-		WebElement element = driver.findElement(By.xpath(".//font[contains(text(),'Mercury Tours')]"));
-		if(element.isDisplayed()){ 
-			System.out.println("Success!!Mercury Home Page is Opened");
-		}
-		else{    
-			System.out.println("This is not the right page,Please Check the URL again");   
-		}
+		WebElement HomeLbl = driver.findElement(By.xpath(prop.getProperty("homePage_xpath")));
+		Assert.assertEquals(true,HomeLbl.isDisplayed());
+		
 		driver.findElement(By.name("userName")).sendKeys(username);
 		driver.findElement(By.name("password")).sendKeys(password);
 		driver.findElement(By.name("login")).click();
@@ -51,15 +61,9 @@ public class FlightBooking {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 
 		//Verify Flight Finder page opened
-		WebElement FlighFindelement = driver.findElement(By.xpath("//img[@src = '/images/masts/mast_flightfinder.gif']"));
+		WebElement FlighFindelement = driver.findElement(By.xpath(prop.getProperty("flightFinder_xpath")));
 		//Assert.assertTrue("Login Failed", b_result);
-		if(FlighFindelement.isDisplayed()){ 
-			System.out.println("Success!!Flight Finder Page is Opened");
-		}
-		else{    
-			System.out.println("This is not the right page!!");   
-		}
-		
+		Assert.assertEquals(true,FlighFindelement.isDisplayed());
 
 		throw new io.cucumber.java.PendingException();
 	}
@@ -100,7 +104,7 @@ public class FlightBooking {
 		//Click Continue
 		driver.findElement(By.name("findFlights")).click();
 
-		boolean bn_result = driver.findElement(By.xpath("//img[@src = '/images/masts/mast_selectflight.gif']")).isDisplayed();
+		boolean bn_result = driver.findElement(By.xpath(prop.getProperty("selectFlight_xpath"))).isDisplayed();
 		Assert.assertTrue("Flight Booking Failed", bn_result);
 
 		throw new io.cucumber.java.PendingException();
@@ -111,10 +115,10 @@ public class FlightBooking {
 		//Click Secure Purchase   
 		driver.findElement(By.name("reserveFlights")).click();
 		//Enter Passenger Details
-		driver.findElement(By.name("passFirst0")).sendKeys("Jane");
-		driver.findElement(By.name("passLast0")).sendKeys("Doe");
+		driver.findElement(By.name("passFirst0")).sendKeys(prop.getProperty("firstName1"));
+		driver.findElement(By.name("passLast0")).sendKeys(prop.getProperty("lastName"));
 		//Enter card Details
-		driver.findElement(By.name("creditnumber")).sendKeys("1123");
+		driver.findElement(By.name("creditnumber")).sendKeys(prop.getProperty("creditNumber"));
 		driver.findElement(By.name("buyFlights")).click();
 
 		throw new io.cucumber.java.PendingException();
@@ -123,21 +127,21 @@ public class FlightBooking {
 	public void check_the_f_light_confirmation_details() {
 
 		//Capture Flight Confirmation       
-		WebElement FlightConfirmation = driver.findElement(By.xpath("//font[contains(text(),'Flight')]"));
+		WebElement FlightConfirmation = driver.findElement(By.xpath(prop.getProperty("flightConfirmation_xpath")));
 		String FlightId = FlightConfirmation.getText();
 		Assert.assertTrue("Failed to Book Flight", (FlightId.contains("Your itinerary has been booked!")));
 		
 		//Departing 
-		String DepartDetails = driver.findElement(By.xpath("//tbody//tr[3]/td[1]/font[1]/b[1]")).getText();
-		System.out.println(DepartDetails);
+		String DepartDetails = driver.findElement(By.xpath(prop.getProperty("departDetails_xpath")).getText();
+		log.info(DepartDetails);
 
 		//returning
-		String ArrivingDetails = driver.findElement(By.xpath("//tbody//tr[3]/td[1]/font[1]/b[1]")).getText();
-		System.out.println(ArrivingDetails);
+		String ArrivingDetails = driver.findElement(By.xpath(prop.getProperty("arrivingDetails_xpath"))).getText();
+		log.info(ArrivingDetails);
 		
 		//Passenger Details
-		String PassengerDetails = driver.findElement(By.xpath("//tr//tr//tr//tr//tr[7]//td[1]")).getText();  
-		System.out.println(PassengerDetails);
+		String PassengerDetails = driver.findElement(By.xpath(prop.getProperty("passengerDetails_xpath"))).getText();  
+		log.info(PassengerDetails);
 
 
 		throw new io.cucumber.java.PendingException();
