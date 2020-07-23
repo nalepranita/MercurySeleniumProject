@@ -31,13 +31,13 @@ public class MercuryTours {
 
 	//add to git
 	WebDriver driver;
-	static ReadExcelFile reader = new ReadExcelFile("src\\testdata\\TestData.xlsx");
+	//static ReadExcelFile reader = new ReadExcelFile("src\\testdata\\TestData.xlsx");
 	//Capture the logs
 	Logger log = Logger.getLogger(MercuryTours.class);
 
 	//Reading OR from properties files
-	Properties prop = new Properties();
 	FileInputStream ip = new FileInputStream("sources\\config.properties");
+	Properties prop = new Properties();
 	prop.load(ip);
 
 
@@ -45,13 +45,14 @@ public class MercuryTours {
 	public static void main(String[] args) throws Exception{
 
 		//Read the input data from excel
-		//ReadExcelFile reader = new ReadExcelFile("src\\testdata\\TestData.xlsx");
+		ReadExcelFile reader = new ReadExcelFile("src\\testdata\\TestData.xlsx");
 		
 	
 		
 		MercuryTours objClassOject = new MercuryTours();
 		//Reading username and password from Testdata file
 		//Get the rowcount to iterate through all data present in Testdata sheet
+		
 		int RowCount = reader.getRowCount(0);
 		int iterator;
 		for(iterator=0; iterator<=RowCount; iterator++){
@@ -68,8 +69,8 @@ public class MercuryTours {
 			}
 			
 
-			objClassOject.func_FlightBook(iterator);
-			objClassOject.func_FlightConfirmationPage(iterator);
+			objClassOject.func_FlightBook(iterator,reader);
+			objClassOject.func_FlightConfirmationPage(iterator,reader);
 			objClassOject.func_Logout();
 
 		}
@@ -154,8 +155,8 @@ public class MercuryTours {
 	}
 	//=======================================================================================
 
-	public void func_FlightBook(int iterator) throws InterruptedException{
-
+	public void func_FlightBook(int iterator,ReadExcelFile reader) throws InterruptedException{
+	
 		//----------------------------------- code for inputting data -----------------------------------------------
 		//Select Passengers
 		 Select Passangers= new Select(driver.findElement(By.cssSelector("select[name='passCount']")));
@@ -260,7 +261,7 @@ public class MercuryTours {
 	}//closing fligtbook
 
 
-	public void func_FlightConfirmationPage(int iterator){
+	public void func_FlightConfirmationPage(int iterator,ReadExcelFile reader){
 
 
 		//Capture Flight Confirmation       
